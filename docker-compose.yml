@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: eventhub-db
+    environment:
+      POSTGRES_DB: eventhub
+      POSTGRES_USER: eventhub
+      POSTGRES_PASSWORD: nPsUWy0zAtvmv2j2ST//MrrB2+LzMq6CHRZOuJvzEwM=
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db-scripts:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
