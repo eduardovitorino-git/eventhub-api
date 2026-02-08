@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EvenHubApiApplication {
+public class EventHubApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EvenHubApiApplication.class, args);
+		SpringApplication.run(EventHubApiApplication.class, args);
 	}
 
 }
