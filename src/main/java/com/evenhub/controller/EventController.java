@@ -1,8 +1,7 @@
 package com.evenhub.controller;
 
-import com.evenhub.entity.Event;
+import com.evenhub.dto.EventDto;
 import com.evenhub.service.EventService;
-import com.evenhub.service.EventServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +16,8 @@ public class EventController {
         this.service = service;
     }
 
-    @GetMapping("/event")
-    public List<Event> findAll() {
+    @GetMapping("/events")
+    public List<EventDto> findAll() {
         return service.findAll();
     }
 }
