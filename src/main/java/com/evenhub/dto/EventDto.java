@@ -1,14 +1,14 @@
 package com.evenhub.dto;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public record EventDto(
         Long id,
         String name,
-        Timestamp event_date,
+        LocalDateTime eventDate,
         String venue,
         Long capacity,
-        Timestamp created_at,
-        Timestamp updated_at
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 }
