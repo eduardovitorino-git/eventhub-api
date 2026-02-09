@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Entity
 @Table(name = "event")
 @Getter
@@ -15,16 +17,16 @@ public class Event {
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
-    private Long name;
+    private String name;
     @Column(name = "event_date")
-    private Long event_date;
+    private Timestamp event_date;
     @Column(name = "venue")
-    private Long venue;
+    private String venue;
     @Column(name = "capacity")
     private Long capacity;
     @Column(name = "created_at")
-    private Long created_at;
+    private Timestamp created_at;
     @Column(name = "updated_at")
-    private Long updated_at;
+    private Timestamp updated_at;
 
 }
