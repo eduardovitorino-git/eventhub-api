@@ -6,11 +6,9 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
-public record EventDto(
-        @NotBlank(message = "O nome do evento é obrigatório.")
+public record EventResponseDto(
+        Long id,
         String name,
-        @NotNull(message = "A data do evento é obrigatória.")
-        @Future(message = "A data do evento deve ser futura.")
         LocalDateTime eventDate,
         String venue,
         Long capacity,

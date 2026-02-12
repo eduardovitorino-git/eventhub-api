@@ -1,6 +1,7 @@
 package com.evenhub.service;
 
-import com.evenhub.dto.EventDto;
+import com.evenhub.dto.EventCreateDto;
+import com.evenhub.dto.EventResponseDto;
 import com.evenhub.entity.Event;
 import com.evenhub.exception.EventNotFoundException;
 import com.evenhub.repository.EventRepository;
@@ -21,23 +22,22 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<EventDto> findAll() {
+    public List<EventResponseDto> findAll() {
         return repository.findAll().stream()
-                .map(mapper::toDto)
+                .map(mapper::toResponseDto)
                 .toList();
     }
 
     @Override
-    public EventDto findById(Long id) {
+    public EventResponseDto findById(Long id) {
         return repository.findById(id)
-                .map(mapper::toDto)
+                .map(mapper::toResponseDto)
                 .orElseThrow(() -> new EventNotFoundException("Evento não encontrado"));
     }
 
     @Override
-    public EventDto save(EventDto eventDto) {
-        Event event = mapper.toEntity(eventDto);
-        return mapper.toDto(repository.save(event));
+    public EventResponseDto save(EventCreateDto eventCreateDto) {
+        Event event = mapper.toEntity(eventCreateDto);
+        return mapper.toResponseDto(repository.save(event));
     }
-
 }

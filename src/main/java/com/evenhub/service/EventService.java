@@ -1,15 +1,17 @@
 package com.evenhub.service;
 
-import com.evenhub.dto.EventDto;
+import com.evenhub.dto.EventCreateDto;
+import com.evenhub.dto.EventResponseDto;
+import com.evenhub.dto.EventUpdateDto;
 
 import java.util.List;
 
 public interface EventService {
 
-    List<EventDto> findAll();
+    List<EventResponseDto> findAll();
 
-    EventDto findById(Long id);
+    EventResponseDto findById(Long id);
 
-    EventDto save(EventDto eventDto);
+    EventResponseDto save(EventCreateDto dto);
 
 }

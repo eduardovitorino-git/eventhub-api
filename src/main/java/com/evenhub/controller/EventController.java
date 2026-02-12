@@ -1,6 +1,7 @@
 package com.evenhub.controller;
 
-import com.evenhub.dto.EventDto;
+import com.evenhub.dto.EventCreateDto;
+import com.evenhub.dto.EventResponseDto;
 import com.evenhub.service.EventService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -17,18 +18,17 @@ public class EventController {
     }
 
     @PostMapping("/events")
-    public EventDto save(@Valid @RequestBody EventDto eventDto) {
-        return service.save(eventDto);
+    public EventResponseDto save(@Valid @RequestBody EventCreateDto eventCreateDto) {
+        return service.save(eventCreateDto);
     }
 
     @GetMapping("/events")
-    public List<EventDto> findAll() {
+    public List<EventResponseDto> findAll() {
         return service.findAll();
     }
 
     @GetMapping("/events/{id}")
-    public EventDto findById(@PathVariable Long id) {
+    public EventResponseDto findById(@PathVariable Long id) {
         return service.findById(id);
     }
-
 }
