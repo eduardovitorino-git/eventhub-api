@@ -5,6 +5,7 @@ import com.evenhub.dto.EventResponseDto;
 import com.evenhub.dto.EventUpdateDto;
 import com.evenhub.service.EventService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +38,11 @@ public class EventController {
     public EventResponseDto update(@PathVariable Long id,
                                    @Valid @RequestBody EventUpdateDto eventUpdateDto) {
         return service.update(id, eventUpdateDto);
+    }
+
+    @DeleteMapping("/events/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -15,4 +15,6 @@ public interface EventService {
     EventResponseDto save(EventCreateDto dto);
 
     EventResponseDto update(Long id, EventUpdateDto dto);
+
+    void delete(Long id);
 }

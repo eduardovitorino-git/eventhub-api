@@ -49,4 +49,11 @@ public class EventServiceImpl implements EventService {
         mapper.updateEntityFromDto(dto, event);
         return mapper.toResponseDto(repository.save(event));
     }
+
+    @Override
+    public void delete(Long id) {
+        Event event = repository.findById(id)
+                .orElseThrow(() -> new EventNotFoundException("Evento não encontrado"));
+        repository.delete(event);
+    }
 }
