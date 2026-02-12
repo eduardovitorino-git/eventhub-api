@@ -2,6 +2,7 @@ package com.evenhub.controller;
 
 import com.evenhub.dto.EventCreateDto;
 import com.evenhub.dto.EventResponseDto;
+import com.evenhub.dto.EventUpdateDto;
 import com.evenhub.service.EventService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -30,5 +31,11 @@ public class EventController {
     @GetMapping("/events/{id}")
     public EventResponseDto findById(@PathVariable Long id) {
         return service.findById(id);
+    }
+
+    @PutMapping("/events/{id}")
+    public EventResponseDto update(@PathVariable Long id,
+                                   @Valid @RequestBody EventUpdateDto eventUpdateDto) {
+        return service.update(id, eventUpdateDto);
     }
 }
